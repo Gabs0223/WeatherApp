@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <meta charset="UTF-8" />
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Poppins&family=Yomogi&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <!--°C/°F button-->
+    <div
+      class="btn-group"
+      id="buttonTemp"
+      role="group"
+      aria-label="Basic outlined example"
+    >
+      <button type="button" class="btn btn-outline-primary" id="C">°C</button>
+      <button type="button" class="btn btn-outline-primary" id="F">°F</button>
+    </div>
+    <!--🔍 button-->
+    <button type="button" class="btn btn-light" id="lens">🔍</button>
+    <!--current location button-->
+    <button type="button" class="btn btn-outline-info" id="current">
+      Current Location 🗺
+    </button>
+    <!--main container starts-->
+    <div class="container" id="outBorder">
+      <div class="row">
+        <!--right side-->
+        <div class="col" id="mainCol">
+          <h4 id="dateToday">05/Agust/21 | 19:00</h4>
+          <h4 class="day" id="dayToday">Tuesday</h4>
+          <h1>12°C</h1>
+          <h3 id="description">storm</h3>
+          <img src="images/047-rainy.svg" class="principal" />
+          <h2>Mexico City</h2>
+        </div>
+        <!--left side-->
+        <div class="col">
+          <!--search bar-->
+          <form id="searchForm">
+            <input
+              type="text"
+              id="searchBar"
+              class="form-control searchBar"
+              placeholder="SEARCH CITY"
+            />
+          </form>
+          <h3 class="foreTitle">FORECAST NEXT 5 DAYS</h3>
+          <div class="container" id="inBorder">
+            <div class="row" id="inHH">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-4">min</div>
+              <div class="col-sm-4">max</div>
+              <div class="col-sm-4"></div>
+            </div>
+            <div class="row" id="inH">
+              <div class="col-sm-4">Monday</div>
+              <div class="col-sm-4">min</div>
+              <div class="col-sm-4">max</div>
+              <div class="col-sm-4">
+                <img src="images/017-sleet.svg" class="forecastIcon" />
+              </div>
+            </div>
+            <div class="row" id="inH">
+              <div class="col-sm-4">Tuesday</div>
+              <div class="col-sm-4">min</div>
+              <div class="col-sm-4">max</div>
+              <div class="col-sm-4">
+                <img src="images/039-wind.svg" class="forecastIcon" />
+              </div>
+            </div>
+            <div class="row" id="inH">
+              <div class="col-sm-4">Wednesday</div>
+              <div class="col-sm-4">min</div>
+              <div class="col-sm-4">max</div>
+              <div class="col-sm-4">
+                <img src="images/046-cloudy.svg" class="forecastIcon" />
+              </div>
+            </div>
+            <div class="row" id="inH">
+              <div class="col-sm-4">Thursday</div>
+              <div class="col-sm-4">min</div>
+              <div class="col-sm-4">max</div>
+              <div class="col-sm-4">
+                <img src="images/026-storm.svg" class="forecastIcon" />
+              </div>
+            </div>
+            <div class="row" id="inH">
+              <div class="col-sm-4">Friday</div>
+              <div class="col-sm-4">min</div>
+              <div class="col-sm-4">max</div>
+              <div class="col-sm-4">
+                <img src="images/026-storm.svg" class="forecastIcon" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
