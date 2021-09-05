@@ -1,0 +1,85 @@
+body {
+  display: block;
+  margin: 0 auto;
+  padding: 30px;
+  text-align: center;
+  font-family: "Yomogi", cursive;
+}
+h1 {
+  color: #85c1e9;
+  font-size: 70px;
+}
+h2 {
+  color: #84b1cf;
+  font-size: 55px;
+  text-transform: capitalize;
+}
+h3 {
+  color: #84b9dc;
+  font-size: 40px;
+  position: relative;
+  top: -20px;
+}
+h4 {
+  color: #83a8c1;
+  font-size: 20px;
+  font-family: "Poppins";
+}
+.principal {
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+  max-height: 200px;
+}
+.day {
+  position: relative;
+  top: -10px;
+}
+.searchBar {
+  position: relative;
+  top: 40px;
+  font-family: monospace;
+  width: 250px;
+}
+.foreTitle {
+  font-size: larger;
+  position: relative;
+  top: 120px;
+}
+.forecastIcon {
+  max-height: 35px;
+}
+#outBorder {
+  border: 5px dotted #83a8c1;
+  width: 750px;
+}
+#inBorder {
+  position: relative;
+  color: #82a0b4;
+  top: 130px;
+  width: 320px;
+}
+#buttonTemp {
+  position: relative;
+  top: 165px;
+  right: 180px;
+}
+#lens {
+  position: relative;
+  top: 82px;
+  left: 365px;
+}
+#mainCol {
+  padding: 30px;
+}
+#inH {
+  height: 55px;
+}
+#inHH {
+  height: 30px;
+}
+#current {
+  position: relative;
+  top: 130px;
+  left: 110px;
+}
