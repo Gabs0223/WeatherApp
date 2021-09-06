@@ -88,8 +88,9 @@ body {
   top: 130px;
   left: 110px;
 }
-#github {
+.firma {
   position: relative;
-  top: 30px;
-  width: fit-content;
+  top: 10px;
+  font-weight: lighter;
+  font-family: "Baloo 2";
 }
