@@ -6,12 +6,9 @@
     <link href="src/styles.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Poppins&family=Yomogi&display=swap"
-      rel="stylesheet"
-    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Baloo+2&family=Poppins:wght@100&family=Yomogi&display=swap");
+    </style>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
@@ -21,7 +18,7 @@
     />
   </head>
 
-  <body>
+  <body class="custom">
     <!--°C/°F button-->
     <div
       class="btn-group"
@@ -43,12 +40,12 @@
       <div class="row">
         <!--right side-->
         <div class="col" id="mainCol">
-          <h4 id="dateToday">05/Agust/21 | 19:00</h4>
-          <h4 class="day" id="dayToday">Tuesday</h4>
-          <h1>12°C</h1>
-          <h3 id="description">storm</h3>
+          <h4 class="fecha" id="dateToday">05/Agust/21 | 19:00</h4>
+          <h4 class="fecha day" id="dayToday">Tuesday</h4>
+          <h1 class="mainTemp">12°C</h1>
+          <h3 class="desc" id="description">storm</h3>
           <img src="images/047-rainy.svg" class="principal" />
-          <h2>Mexico City</h2>
+          <h2 class="cityNow">Mexico City</h2>
         </div>
         <!--left side-->
         <div class="col">
@@ -61,7 +58,7 @@
               placeholder="SEARCH CITY"
             />
           </form>
-          <h3 class="foreTitle">FORECAST NEXT 5 DAYS</h3>
+          <h3 class="desc foreTitle">FORECAST NEXT 5 DAYS</h3>
           <div class="container" id="inBorder">
             <div class="row" id="inHH">
               <div class="col-sm-4"></div>

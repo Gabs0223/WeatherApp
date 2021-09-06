@@ -2,28 +2,33 @@ body {
   display: block;
   margin: 0 auto;
   padding: 30px;
+}
+.custom {
   text-align: center;
   font-family: "Yomogi", cursive;
 }
-h1 {
+.mainTemp {
   color: #85c1e9;
   font-size: 70px;
 }
-h2 {
+.cityNow {
   color: #84b1cf;
   font-size: 55px;
   text-transform: capitalize;
+  text-align: center;
 }
-h3 {
+.desc {
   color: #84b9dc;
   font-size: 40px;
   position: relative;
   top: -20px;
 }
-h4 {
+.fecha {
   color: #83a8c1;
   font-size: 20px;
-  font-family: "Poppins";
+  text-align: center;
+  font-weight: bolder;
+  font-family: "Poppins", sans-serif;
 }
 .principal {
   display: block;
@@ -35,12 +40,6 @@ h4 {
   position: relative;
   top: -10px;
 }
-.searchBar {
-  position: relative;
-  top: 40px;
-  font-family: monospace;
-  width: 250px;
-}
 .foreTitle {
   font-size: larger;
   position: relative;
@@ -49,9 +48,15 @@ h4 {
 .forecastIcon {
   max-height: 35px;
 }
+#searchBar {
+  position: relative;
+  top: 40px;
+  font-family: monospace;
+  width: 300px;
+}
 #outBorder {
   border: 5px dotted #83a8c1;
-  width: 750px;
+  width: 800px;
 }
 #inBorder {
   position: relative;
@@ -62,12 +67,12 @@ h4 {
 #buttonTemp {
   position: relative;
   top: 165px;
-  right: 180px;
+  right: 200px;
 }
 #lens {
   position: relative;
   top: 82px;
-  left: 365px;
+  left: 410px;
 }
 #mainCol {
   padding: 30px;
