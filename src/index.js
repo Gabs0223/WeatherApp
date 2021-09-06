@@ -87,7 +87,7 @@ document.querySelector("#lens").addEventListener("click", getCityTemp);
 function change2celcius(event) {
   event.preventDefault();
   let cityName = capitalize(document.querySelector("#searchBar").value);
-  let apiKey = `0f228e3e7aa18774ac951c893270d5e1`;
+  let apiKey = "";
   let units = `metric`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
 
@@ -103,7 +103,7 @@ document.querySelector("#C").addEventListener("click", change2celcius);
 function change2fahrenheit(event) {
   event.preventDefault();
   let cityName = capitalize(document.querySelector("#searchBar").value);
-  let apiKey = `0f228e3e7aa18774ac951c893270d5e1`;
+  let apiKey = "";
   let units = `metric`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
 
@@ -130,7 +130,7 @@ function currentPos(event) {
     changeH1.innerHTML = `${response.data.name} `;
   }
   function currentTemp(position) {
-    let apiKey = `0f228e3e7aa18774ac951c893270d5e1`;
+    let apiKey = "";
     let lat = Math.round(position.coords.latitude);
     let long = Math.round(position.coords.longitude);
     let units = `metric`;
