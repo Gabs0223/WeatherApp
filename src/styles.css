@@ -88,3 +88,8 @@ body {
   top: 130px;
   left: 110px;
 }
+#github {
+  position: relative;
+  top: 30px;
+  width: fit-content;
+}
