@@ -168,3 +168,42 @@ function getWindHum(event) {
 document.querySelector("#searchForm").addEventListener("submit", getWindHum);
 // get the Wind & Humidity of a city when clicking on 🔍
 document.querySelector("#lens").addEventListener("click", getWindHum);
+
+// --- Weather icons ---
+function changeIcon(event) {
+  event.preventDefault();
+  let cityName = capitalize(document.querySelector("#searchBar").value);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
+
+  function iconW(response) {
+    let icon = response.data.weather[0].icon;
+    if (icon === "01d") {
+      document.getElementById("#descIm").src = "images/033-sun.svg";
+    } else if (icon === "01n") {
+      document.getElementById("#descIm").src = "images/019-moon.svg";
+    } else if (icon === "02d" || icon === "03d" || icon === "04d") {
+      document.getElementById("#descIm").src = "images/046-cloudy.svg";
+    } else if (icon === "02n" || icon === "03n" || icon === "04n") {
+      document.getElementById("#descIm").src = "images/013-night.svg";
+    } else if (icon === "09d" || icon === "09n") {
+      document.getElementById("#descIm").src = "images/005-rain.svg";
+    } else if (icon === "10d") {
+      document.getElementById("#descIm").src = "images/047-rainy.svg";
+    } else if (icon === "10n") {
+      document.getElementById("#descIm").src = "images/049-rain.svg";
+    } else if (icon === "11d" || icon === "11n") {
+      document.getElementById("#descIm").src = "images/026-storm.svg";
+    } else if (icon === "13d" || icon === "13n") {
+      document.getElementById("#descIm").src = "images/011-snow.svg";
+    } else if (icon === "50d") {
+      document.getElementById("#descIm").src = "images/014-haze.svg";
+    } else if (icon === "50n") {
+      document.getElementById("#descIm").src = "images/037-foggy.svg";
+    }
+  }
+  axios.get(apiUrl).then(iconW);
+}
+// get the Wind & Humidity of a city when submitting in the form
+document.querySelector("#searchForm").addEventListener("submit", changeIcon);
+// get the Wind & Humidity of a city when clicking on 🔍
+document.querySelector("#lens").addEventListener("click", changeIcon);
