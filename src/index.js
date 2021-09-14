@@ -48,6 +48,8 @@ function getCity(event) {
   event.preventDefault();
   let city = document.querySelector("#searchBar");
   document.querySelector("h1").innerHTML = city.value;
+  document.getElementById("C2").id = "C";
+  document.getElementById("F2").id = "F";
 }
 // search a city when submitting in the form
 document.querySelector("#searchForm").addEventListener("submit", getCity);
@@ -176,29 +178,31 @@ function changeIcon(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
 
   function iconW(response) {
+    console.log(response.data.weather[0].icon);
     let icon = response.data.weather[0].icon;
     if (icon === "01d") {
-      document.getElementById("#descIm").src = "images/033-sun.svg";
+      document.getElementById("descIm").src = "images/033-sun.svg";
     } else if (icon === "01n") {
-      document.getElementById("#descIm").src = "images/019-moon.svg";
+      document.getElementById("descIm").src = "images/019-moon.svg";
     } else if (icon === "02d" || icon === "03d" || icon === "04d") {
-      document.getElementById("#descIm").src = "images/046-cloudy.svg";
+      document.getElementById("descIm").src = "images/046-cloudy.svg";
     } else if (icon === "02n" || icon === "03n" || icon === "04n") {
-      document.getElementById("#descIm").src = "images/013-night.svg";
+      console.log("holi");
+      document.getElementById("descIm").src = "images/013-night.svg";
     } else if (icon === "09d" || icon === "09n") {
-      document.getElementById("#descIm").src = "images/005-rain.svg";
+      document.getElementById("descIm").src = "images/005-rain.svg";
     } else if (icon === "10d") {
-      document.getElementById("#descIm").src = "images/047-rainy.svg";
+      document.getElementById("descIm").src = "images/047-rainy.svg";
     } else if (icon === "10n") {
-      document.getElementById("#descIm").src = "images/049-rain.svg";
+      document.getElementById("descIm").src = "images/049-rain.svg";
     } else if (icon === "11d" || icon === "11n") {
-      document.getElementById("#descIm").src = "images/026-storm.svg";
+      document.getElementById("descIm").src = "images/026-storm.svg";
     } else if (icon === "13d" || icon === "13n") {
-      document.getElementById("#descIm").src = "images/011-snow.svg";
+      document.getElementById("descIm").src = "images/011-snow.svg";
     } else if (icon === "50d") {
-      document.getElementById("#descIm").src = "images/014-haze.svg";
+      document.getElementById("descIm").src = "images/014-haze.svg";
     } else if (icon === "50n") {
-      document.getElementById("#descIm").src = "images/037-foggy.svg";
+      document.getElementById("descIm").src = "images/037-foggy.svg";
     }
   }
   axios.get(apiUrl).then(iconW);
