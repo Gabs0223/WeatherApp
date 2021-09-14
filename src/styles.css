@@ -4,7 +4,6 @@ body {
   padding: 30px;
 }
 .custom {
-  text-align: center;
   font-family: "Yomogi", cursive;
 }
 .mainTemp {
@@ -21,7 +20,7 @@ body {
   color: #84b9dc;
   font-size: 40px;
   position: relative;
-  top: -20px;
+  top: 0px;
 }
 .fecha {
   color: #83a8c1;
@@ -42,39 +41,28 @@ body {
 }
 .foreTitle {
   font-size: larger;
-  position: relative;
-  top: 120px;
 }
 .forecastIcon {
   max-height: 35px;
 }
 #searchBar {
-  position: relative;
-  top: 40px;
   font-family: monospace;
   width: 300px;
 }
 #outBorder {
   border: 5px dotted #83a8c1;
-  width: 800px;
+  width: 1000px;
 }
 #inBorder {
-  position: relative;
   color: #82a0b4;
-  top: 130px;
   width: 320px;
 }
-#buttonTemp {
-  position: relative;
-  top: 165px;
-  right: 200px;
-}
+
 #lens {
   position: relative;
-  top: 82px;
-  left: 410px;
+  top: auto;
 }
-#mainCol {
+#leftCol {
   padding: 30px;
 }
 #inH {
@@ -83,10 +71,9 @@ body {
 #inHH {
   height: 30px;
 }
-#current {
+#currentLoc {
   position: relative;
-  top: 130px;
-  left: 110px;
+  top: auto;
 }
 .firma {
   position: relative;

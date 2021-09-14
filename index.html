@@ -19,36 +19,15 @@
   </head>
 
   <body class="custom">
-    <!--°C/°F button-->
-    <div
-      class="btn-group"
-      id="buttonTemp"
-      role="group"
-      aria-label="Basic outlined example"
-    >
-      <button type="button" class="btn btn-outline-primary" id="C">°C</button>
-      <button type="button" class="btn btn-outline-primary" id="F">°F</button>
-    </div>
-    <!--🔍 button-->
-    <button type="button" class="btn btn-light" id="lens">🔍</button>
-    <!--current location button-->
-    <button type="button" class="btn btn-outline-info" id="current">
-      Current Location 🗺
-    </button>
-    <!--main container starts-->
+    <!---NUEVO DIV-->
+    <!--main container-->
     <div class="container" id="outBorder">
       <div class="row">
-        <!--right side-->
-        <div class="col" id="mainCol">
-          <h4 class="fecha" id="dateToday">05/Agust/21 | 19:00</h4>
-          <h4 class="fecha day" id="dayToday">Tuesday</h4>
-          <h1 class="mainTemp">12°C</h1>
-          <h3 class="desc" id="description">storm</h3>
-          <img src="images/047-rainy.svg" class="principal" />
-          <h2 class="cityNow">Mexico City</h2>
-        </div>
         <!--left side-->
-        <div class="col">
+        <div class="col" id="leftCol">
+          <h1 class="cityNow">Mexico City</h1>
+          <h2 class="fecha" id="dateToday">05 Agust,21 | 19:00</h2>
+          <h3 class="fecha day" id="dayToday">Tuesday</h3>
           <!--search bar-->
           <form id="searchForm">
             <input
@@ -58,58 +37,71 @@
               placeholder="SEARCH CITY"
             />
           </form>
-          <h3 class="desc foreTitle">FORECAST NEXT 5 DAYS</h3>
-          <div class="container" id="inBorder">
-            <div class="row" id="inHH">
-              <div class="col-sm-4"></div>
-              <div class="col-sm-4">min</div>
-              <div class="col-sm-4">max</div>
-              <div class="col-sm-4"></div>
+          <!--🔍 button-->
+          <button type="button" class="btn btn-light" id="lens">🔍</button>
+          <!--current location button-->
+          <button type="button" class="btn btn-outline-info" id="currentLoc">
+            Current Location 🗺
+          </button>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <img src="images/047-rainy.svg" class="descIm principal" />
+              <h3 class="desc" id="description">storm</h3>
             </div>
-            <div class="row" id="inH">
-              <div class="col-sm-4">Monday</div>
-              <div class="col-sm-4">min</div>
-              <div class="col-sm-4">max</div>
-              <div class="col-sm-4">
-                <img src="images/017-sleet.svg" class="forecastIcon" />
-              </div>
-            </div>
-            <div class="row" id="inH">
-              <div class="col-sm-4">Tuesday</div>
-              <div class="col-sm-4">min</div>
-              <div class="col-sm-4">max</div>
-              <div class="col-sm-4">
-                <img src="images/039-wind.svg" class="forecastIcon" />
-              </div>
-            </div>
-            <div class="row" id="inH">
-              <div class="col-sm-4">Wednesday</div>
-              <div class="col-sm-4">min</div>
-              <div class="col-sm-4">max</div>
-              <div class="col-sm-4">
-                <img src="images/046-cloudy.svg" class="forecastIcon" />
-              </div>
-            </div>
-            <div class="row" id="inH">
-              <div class="col-sm-4">Thursday</div>
-              <div class="col-sm-4">min</div>
-              <div class="col-sm-4">max</div>
-              <div class="col-sm-4">
-                <img src="images/026-storm.svg" class="forecastIcon" />
-              </div>
-            </div>
-            <div class="row" id="inH">
-              <div class="col-sm-4">Friday</div>
-              <div class="col-sm-4">min</div>
-              <div class="col-sm-4">max</div>
-              <div class="col-sm-4">
-                <img src="images/026-storm.svg" class="forecastIcon" />
-              </div>
+            <div class="col">
+              <h1 class="mainTemp">12° <a>°C</a>|<a>°F</a></h1>
+              <br />
+              <br />
+              <h4>Humidity: <span class="humidity">57%</span></h4>
+              <h4>Wind: <span class="wind">4.02km/h</span></h4>
             </div>
           </div>
         </div>
       </div>
+      <div class="row">
+        <h3 class="desc foreTitle">FORECAST NEXT 5 DAYS</h3>
+      </div>
+      <div class="row">
+        <div class="col forecast">
+          <p>Monday</p>
+          <img src="images/017-sleet.svg" class="forecastIcon" />
+          <p>
+            <span class="maxTemp">28°</span><span class="minTemp">12°</span>
+          </p>
+        </div>
+        <div class="col forecast">
+          <p>Tuesday</p>
+          <img src="images/039-wind.svg" class="forecastIcon" />
+          <p>
+            <span class="maxTemp">28°</span><span class="minTemp">12°</span>
+          </p>
+        </div>
+        <div class="col forecast">
+          <p>Wednesday</p>
+          <img src="images/046-cloudy.svg" class="forecastIcon" />
+          <p>
+            <span class="maxTemp">28°</span><span class="minTemp">12°</span>
+          </p>
+        </div>
+        <div class="col forecast">
+          <p>Thursday</p>
+          <img src="images/037-foggy.svg" class="forecastIcon" />
+          <p>
+            <span class="maxTemp">28°</span><span class="minTemp">12°</span>
+          </p>
+        </div>
+        <div class="col forecast">
+          <p>Friday</p>
+          <img src="images/014-haze.svg" class="forecastIcon" />
+          <p>
+            <span class="maxTemp">28°</span><span class="minTemp">12°</span>
+          </p>
+        </div>
+      </div>
     </div>
+    <!--Aquí acaba prueba-->
     <div class="firma">
       <a href="https://github.com/Gabs0223/WeatherApp" target="_blank"
         >Open-source code</a

@@ -34,9 +34,9 @@ if (dateNow.getMinutes() <= 9) {
 }
 
 // date => 5/August/2021 | 22:54
-document.querySelector("#dateToday").innerHTML = `${dateNow.getDate()}/${
+document.querySelector("#dateToday").innerHTML = `${dateNow.getDate()} ${
   months[month]
-}/${dateNow.getFullYear()} | ${dateNow.getHours()}:${minNow}`;
+},${dateNow.getFullYear()} | ${dateNow.getHours()}:${minNow}`;
 // day => Sunday
 document.querySelector("#dayToday").innerHTML = `${days[day]}`;
 
