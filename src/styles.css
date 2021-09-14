@@ -88,6 +88,20 @@ body {
 #inBorder {
   width: 700px;
 }
+#F {
+  text-decoration: none;
+}
+#C {
+  text-decoration: none;
+  font-weight: bolder;
+}
+#F2 {
+  text-decoration: none;
+  font-weight: bolder;
+}
+#C2 {
+  text-decoration: none;
+}
 .firma {
   text-align: center;
   position: relative;

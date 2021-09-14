@@ -19,18 +19,17 @@
   </head>
 
   <body class="custom">
-    <!---NUEVO DIV-->
     <!--main container-->
     <div class="container" id="outBorder">
       <div class="row">
         <!--left side-->
         <div class="col" id="leftCol">
           <h1 class="cityNow">Mexico City</h1>
-          <h2 class="fecha" id="dateToday">
-            <span class="dia">Agust 05, 2021</span>
-            <span class="barra">|</span> <span class="hora">19:00</span>
-          </h2>
-          <h3 class="fecha day" id="dayToday">Tuesday</h3>
+          <h3 class="fecha" id="dateToday">
+            <span id="dia">August 05, 2021</span>
+            <span class="barra">|</span> <span id="hora">19:00</span>
+          </h3>
+          <h4 class="fecha day" id="dayToday">Tuesday</h4>
           <!--search bar-->
           <form id="searchForm">
             <input
@@ -47,26 +46,30 @@
             Current Location 🗺
           </button>
         </div>
+        <!--rigth side-->
         <div class="col" id="leftCol">
           <div class="row">
+            <!--Weather image & description-->
             <div class="col">
               <img src="images/047-rainy.svg" class="descIm principal" />
               <h3 class="desc" id="description">storm</h3>
             </div>
+            <!--Temperature-->
             <div class="col">
-              <h1 class="mainTemp">12°</h1>
+              <h2 class="mainTemp">12°</h2>
+              <!--°C 2 °F-->
               <span class="deg"
-                ><a>°C</a><span class="barra"> |</span><a>°F</a></span
-              >
-              <br />
-              <br />
-              <h5>Humidity: <span class="humidity">57%</span></h4>
-              <h5>Wind: <span class="wind">4.02km/h</span></h4>
+                ><a href="#" id="C">°C</a><span class="barra"> |</span><a href="#" id="F">°F</a></span
+              ><br />
+              <!--humidity & wind-->
+              <h5>Humidity: <span id="humidity">57%</span></h4>
+              <h5>Wind: <span id="wind">4.02km/h</span></h4>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
+        <!--forecast-->
         <h3 class="desc foreTitle">FORECAST NEXT 5 DAYS</h3>
       </div>
       <div class="container" id="inBorder">
@@ -109,7 +112,7 @@
       </div>
       </div>
     </div>
-    <!--Aquí acaba prueba-->
+    <!--Name & Github-->
     <div class="firma">
       <a href="https://github.com/Gabs0223/WeatherApp" target="_blank"
         >Open-source code</a
