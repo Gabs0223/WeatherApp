@@ -33,10 +33,13 @@ if (dateNow.getMinutes() <= 9) {
   minNow = dateNow.getMinutes();
 }
 
-// date => 5/August/2021 | 22:54
-document.querySelector("#dateToday").innerHTML = `${dateNow.getDate()} ${
+// full date => August 5, 2021 | 22:54
+// date => August 5, 2021
+document.querySelector("dia").innerHTML = `${
   months[month]
-},${dateNow.getFullYear()} | ${dateNow.getHours()}:${minNow}`;
+} ${dateNow.getDate()}, ${dateNow.getFullYear()}`;
+// hour => 19:00
+document.querySelector("hora").innerHTML = `${dateNow.getHours()}:${minNow}`;
 // day => Sunday
 document.querySelector("#dayToday").innerHTML = `${days[day]}`;
 

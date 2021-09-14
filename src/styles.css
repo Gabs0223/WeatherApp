@@ -5,77 +5,91 @@ body {
 }
 .custom {
   font-family: "Yomogi", cursive;
-}
-.mainTemp {
-  color: #85c1e9;
-  font-size: 70px;
+  color: #83a8c1;
 }
 .cityNow {
   color: #84b1cf;
   font-size: 55px;
   text-transform: capitalize;
-  text-align: center;
-}
-.desc {
-  color: #84b9dc;
-  font-size: 40px;
-  position: relative;
-  top: 0px;
+  text-align: left;
 }
 .fecha {
   color: #83a8c1;
   font-size: 20px;
-  text-align: center;
+  text-align: left;
   font-weight: bolder;
   font-family: "Poppins", sans-serif;
+}
+.barra {
+  color: #83a8c1;
+  font-size: 27px;
 }
 .principal {
   display: block;
   margin: 0 auto;
-  padding: 20px;
-  max-height: 200px;
+  padding: 10px;
+  max-height: 150px;
 }
-.day {
+.mainTemp {
+  color: #85c1e9;
+  font-size: 70px;
+}
+.desc {
+  color: #84b9dc;
+  font-size: 40px;
+  text-align: center;
+}
+.deg {
+  font-size: 20px;
   position: relative;
-  top: -10px;
+  top: -70px;
+  left: 105px;
+  color: #85c1e9;
 }
 .foreTitle {
   font-size: larger;
 }
 .forecastIcon {
-  max-height: 35px;
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
+  max-height: 55px;
+}
+.textFore {
+  text-align: center;
+  margin: 0 auto;
+  padding: 2px;
+  margin-bottom: 0px;
+}
+.maxTemp {
+  font-weight: bolder;
 }
 #searchBar {
   font-family: monospace;
   width: 300px;
 }
-#outBorder {
-  border: 5px dotted #83a8c1;
-  width: 1000px;
-}
-#inBorder {
-  color: #82a0b4;
-  width: 320px;
-}
-
 #lens {
   position: relative;
-  top: auto;
+  top: -38px;
+  left: 310px;
+}
+#currentLoc {
+  position: relative;
+  top: 10px;
+}
+#outBorder {
+  padding: 15px;
+  border: 5px dotted #83a8c1;
+  width: 900px;
 }
 #leftCol {
   padding: 30px;
 }
-#inH {
-  height: 55px;
-}
-#inHH {
-  height: 30px;
-}
-#currentLoc {
-  position: relative;
-  top: auto;
+#inBorder {
+  width: 700px;
 }
 .firma {
+  text-align: center;
   position: relative;
   top: 10px;
   font-weight: lighter;

@@ -26,7 +26,10 @@
         <!--left side-->
         <div class="col" id="leftCol">
           <h1 class="cityNow">Mexico City</h1>
-          <h2 class="fecha" id="dateToday">05 Agust,21 | 19:00</h2>
+          <h2 class="fecha" id="dateToday">
+            <span class="dia">Agust 05, 2021</span>
+            <span class="barra">|</span> <span class="hora">19:00</span>
+          </h2>
           <h3 class="fecha day" id="dayToday">Tuesday</h3>
           <!--search bar-->
           <form id="searchForm">
@@ -44,18 +47,21 @@
             Current Location 🗺
           </button>
         </div>
-        <div class="col">
+        <div class="col" id="leftCol">
           <div class="row">
             <div class="col">
               <img src="images/047-rainy.svg" class="descIm principal" />
               <h3 class="desc" id="description">storm</h3>
             </div>
             <div class="col">
-              <h1 class="mainTemp">12° <a>°C</a>|<a>°F</a></h1>
+              <h1 class="mainTemp">12°</h1>
+              <span class="deg"
+                ><a>°C</a><span class="barra"> |</span><a>°F</a></span
+              >
               <br />
               <br />
-              <h4>Humidity: <span class="humidity">57%</span></h4>
-              <h4>Wind: <span class="wind">4.02km/h</span></h4>
+              <h5>Humidity: <span class="humidity">57%</span></h4>
+              <h5>Wind: <span class="wind">4.02km/h</span></h4>
             </div>
           </div>
         </div>
@@ -63,42 +69,44 @@
       <div class="row">
         <h3 class="desc foreTitle">FORECAST NEXT 5 DAYS</h3>
       </div>
-      <div class="row">
+      <div class="container" id="inBorder">
+        <div class="row">
         <div class="col forecast">
-          <p>Monday</p>
+          <p class="textFore">Monday</p>
           <img src="images/017-sleet.svg" class="forecastIcon" />
-          <p>
+          <p  class="textFore">
             <span class="maxTemp">28°</span><span class="minTemp">12°</span>
           </p>
         </div>
         <div class="col forecast">
-          <p>Tuesday</p>
+          <p  class="textFore">Tuesday</p>
           <img src="images/039-wind.svg" class="forecastIcon" />
-          <p>
+          <p  class="textFore">
             <span class="maxTemp">28°</span><span class="minTemp">12°</span>
           </p>
         </div>
         <div class="col forecast">
-          <p>Wednesday</p>
+          <p class="textFore">Wednesday</p>
           <img src="images/046-cloudy.svg" class="forecastIcon" />
-          <p>
+          <p class="textFore">
             <span class="maxTemp">28°</span><span class="minTemp">12°</span>
           </p>
         </div>
         <div class="col forecast">
-          <p>Thursday</p>
+          <p class="textFore">Thursday</p>
           <img src="images/037-foggy.svg" class="forecastIcon" />
-          <p>
+          <p class="textFore">
             <span class="maxTemp">28°</span><span class="minTemp">12°</span>
           </p>
         </div>
         <div class="col forecast">
-          <p>Friday</p>
+          <p class="textFore">Friday</p>
           <img src="images/014-haze.svg" class="forecastIcon" />
-          <p>
+          <p class="textFore">
             <span class="maxTemp">28°</span><span class="minTemp">12°</span>
           </p>
         </div>
+      </div>
       </div>
     </div>
     <!--Aquí acaba prueba-->
