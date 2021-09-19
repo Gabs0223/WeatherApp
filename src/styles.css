@@ -2,8 +2,12 @@ body {
   display: block;
   margin: 0 auto;
   padding: 30px;
+  background: url("https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500")
+    no-repeat center fixed;
+  background-size: cover;
 }
 .custom {
+  display: block;
   font-family: "Yomogi", cursive;
   color: #83a8c1;
 }
@@ -40,7 +44,8 @@ body {
   text-align: center;
 }
 .deg {
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: bolder;
   position: relative;
   top: -70px;
   left: 105px;
@@ -78,29 +83,17 @@ body {
   top: 10px;
 }
 #outBorder {
+  display: block;
   padding: 15px;
   border: 5px dotted #83a8c1;
   width: 900px;
+  backdrop-filter: blur(25px);
 }
 #leftCol {
   padding: 30px;
 }
 #inBorder {
   width: 700px;
-}
-#F {
-  text-decoration: none;
-}
-#C {
-  text-decoration: none;
-  font-weight: bolder;
-}
-#F2 {
-  text-decoration: none;
-  font-weight: bolder;
-}
-#C2 {
-  text-decoration: none;
 }
 .firma {
   text-align: center;
