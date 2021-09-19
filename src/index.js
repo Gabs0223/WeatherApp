@@ -1,3 +1,8 @@
+// --- Main variables ---
+let city = document.querySelector("#searchBar");
+let apiKey = `0f228e3e7aa18774ac951c893270d5e1`;
+let units = `metric`;
+
 // --- Dates ---
 let dateNow = new Date();
 let days = [
@@ -32,7 +37,6 @@ if (dateNow.getMinutes() <= 9) {
 } else {
   minNow = dateNow.getMinutes();
 }
-
 // full date => August 5, 2021 | 22:54
 // date => August 5, 2021
 document.querySelector("#dia").innerHTML = `${
@@ -43,171 +47,157 @@ document.querySelector("#hora").innerHTML = `${dateNow.getHours()}:${minNow}`;
 // day => Sunday
 document.querySelector("#dayToday").innerHTML = `${days[day]}`;
 
-// --- Search a city ---
-function getCity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#searchBar");
-  document.querySelector("h1").innerHTML = city.value;
-  document.getElementById("C2").id = "C";
-  document.getElementById("F2").id = "F";
-}
-// search a city when submitting in the form
-document.querySelector("#searchForm").addEventListener("submit", getCity);
-// search a city when clicking on 🔍
-document.querySelector("#lens").addEventListener("click", getCity);
-
-// --- Temperature ---
 // capitalize a word
-console.log(document.querySelector("#searchBar").value);
 function capitalize(word) {
   return word[0].toUpperCase() + word.slice(1).toLowerCase();
 }
+// temperature, description, wind, and humidity
+function tempInC(response) {
+  let tempNow = Math.round(response.data.main.temp);
+  let description = response.data.weather[0].description;
+  let wind = response.data.wind.speed;
+  let humidity = response.data.main.humidity;
 
-let apiKey = `0f228e3e7aa18774ac951c893270d5e1`;
-let units = `metric`;
+  document.querySelector("#humidity").innerHTML = `${humidity}%`;
+  document.querySelector("#wind").innerHTML = `${wind}km/h`;
+  document.querySelector("h2").innerHTML = `${tempNow}`;
+  document.querySelector("#description").innerHTML = `${description}`;
 
-// get the temperature
-function getCityTemp(event) {
-  event.preventDefault();
-  let cityName = capitalize(document.querySelector("#searchBar").value);
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
-
-  function weather(response) {
-    let tempNow = Math.round(response.data.main.temp);
-    console.log(`${tempNow}°C`);
-    let description = response.data.weather[0].description;
-    console.log(description);
-    document.querySelector("h2").innerHTML = `${tempNow}`;
-    document.querySelector("#description").innerHTML = `${description}`;
-  }
-
-  axios.get(apiUrl).then(weather);
+  console.log(response.data.coord);
+  getForecast(response.data.coord);
 }
-// get the temperature of a city when submitting in the form
-document.querySelector("#searchForm").addEventListener("submit", getCityTemp);
-// get the temperature of a city when clicking on 🔍
-document.querySelector("#lens").addEventListener("click", getCityTemp);
-
-// Temp in °C
-function change2celcius(event) {
-  event.preventDefault();
-  let cityName = capitalize(document.querySelector("#searchBar").value);
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
-
-  function weather(response) {
-    let tempNow = Math.round(response.data.main.temp);
-    document.querySelector("h2").innerHTML = `${tempNow}`;
+// weather icons id
+function iconW(response) {
+  let icon = response.data.weather[0].icon;
+  if (icon === "01d") {
+    document.getElementById("descIm").src = "images/033-sun.svg";
+  } else if (icon === "01n") {
+    document.getElementById("descIm").src = "images/019-moon.svg";
+  } else if (icon === "02d" || icon === "03d" || icon === "04d") {
+    document.getElementById("descIm").src = "images/046-cloudy.svg";
+  } else if (icon === "02n" || icon === "03n" || icon === "04n") {
+    document.getElementById("descIm").src = "images/013-night.svg";
+  } else if (icon === "09d" || icon === "09n") {
+    document.getElementById("descIm").src = "images/005-rain.svg";
+  } else if (icon === "10d") {
+    document.getElementById("descIm").src = "images/047-rainy.svg";
+  } else if (icon === "10n") {
+    document.getElementById("descIm").src = "images/049-rain.svg";
+  } else if (icon === "11d" || icon === "11n") {
+    document.getElementById("descIm").src = "images/026-storm.svg";
+  } else if (icon === "13d" || icon === "13n") {
+    document.getElementById("descIm").src = "images/011-snow.svg";
+  } else if (icon === "50d") {
+    document.getElementById("descIm").src = "images/014-haze.svg";
+  } else if (icon === "50n") {
+    document.getElementById("descIm").src = "images/037-foggy.svg";
   }
-
-  axios.get(apiUrl).then(weather);
-  document.getElementById("C2").id = "C";
-  document.getElementById("F2").id = "F";
 }
-document.querySelector("#C").addEventListener("click", change2celcius);
-// transfotm °C to °F
-function change2fahrenheit(event) {
+
+// ----SEARCH A CITY----
+function searchCity(event) {
   event.preventDefault();
-  let cityName = capitalize(document.querySelector("#searchBar").value);
+  document.querySelector("h1").innerHTML = city.value;
+
+  let cityName = capitalize(city.value);
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
-
-  function weather(response) {
-    let tempNow = Math.round(response.data.main.temp);
-    let tempNowF = Math.round((tempNow * 9) / 5) + 32;
-    document.querySelector("h2").innerHTML = `${tempNowF}`;
-  }
-
-  axios.get(apiUrl).then(weather);
-  document.getElementById("C").id = "C2";
-  document.getElementById("F").id = "F2";
+  axios.get(apiUrl).then(tempInC);
+  axios.get(apiUrl).then(iconW);
 }
-document.querySelector("#F").addEventListener("click", change2fahrenheit);
+// search a city when submitting in the form
+document.querySelector("#searchForm").addEventListener("submit", searchCity);
+// search a city when clicking on 🔍
+document.querySelector("#lens").addEventListener("click", searchCity);
 
-// ---Current position temperature---
-function currentPos(event) {
+// ---CURRENT LOCATION---
+function currentLoc(event) {
   event.preventDefault();
-  function weather(response) {
-    console.log(response);
-    let tempNow = Math.round(response.data.main.temp);
-    document.querySelector("h2").innerHTML = `${tempNow}`;
+  function nameC(response) {
     let changeH1 = document.querySelector("h1");
     changeH1.innerHTML = `${response.data.name} `;
-
-    let wind = response.data.wind.speed;
-    let humidity = response.data.main.humidity;
-    document.querySelector("#humidity").innerHTML = `${humidity}%`;
-    document.querySelector("#wind").innerHTML = `${wind}km/h`;
   }
   function currentTemp(position) {
     let lat = Math.round(position.coords.latitude);
     let long = Math.round(position.coords.longitude);
     let urlCoords = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=${units}&appid=${apiKey}`;
 
-    axios.get(urlCoords).then(weather);
-    document.getElementById("C2").id = "C";
-    document.getElementById("F2").id = "F";
+    axios.get(urlCoords).then(nameC);
+    axios.get(urlCoords).then(tempInC);
+    axios.get(urlCoords).then(iconW);
   }
-
   navigator.geolocation.getCurrentPosition(currentTemp);
 }
-document.querySelector("#currentLoc").addEventListener("click", currentPos);
+document.querySelector("#currentLoc").addEventListener("click", currentLoc);
 
-// ---Wind & Humidity
-function getWindHum(event) {
-  event.preventDefault();
-  let cityName = capitalize(document.querySelector("#searchBar").value);
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
+// ---FORECAST 5 DAYS---
+// day of the week
+function dayOW(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
 
-  function windHum(response) {
-    let wind = response.data.wind.speed;
-    let humidity = response.data.main.humidity;
-    document.querySelector("#humidity").innerHTML = `${humidity}%`;
-    document.querySelector("#wind").innerHTML = `${wind}km/h`;
-  }
-
-  axios.get(apiUrl).then(windHum);
+  return days[day];
 }
-// get the Wind & Humidity of a city when submitting in the form
-document.querySelector("#searchForm").addEventListener("submit", getWindHum);
-// get the Wind & Humidity of a city when clicking on 🔍
-document.querySelector("#lens").addEventListener("click", getWindHum);
+// weather icon
+function getIcon(icon) {
+  let imsrc = "";
 
-// --- Weather icons ---
-function changeIcon(event) {
-  event.preventDefault();
-  let cityName = capitalize(document.querySelector("#searchBar").value);
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
+  if (icon === "01d") {
+    imsrc = "images/033-sun.svg";
+  } else if (icon === "01n") {
+    imsrc = "images/019-moon.svg";
+  } else if (icon === "02d" || icon === "03d" || icon === "04d") {
+    imsrc = "images/046-cloudy.svg";
+  } else if (icon === "02n" || icon === "03n" || icon === "04n") {
+    imsrc = "images/013-night.svg";
+  } else if (icon === "09d" || icon === "09n") {
+    imsrc = "images/005-rain.svg";
+  } else if (icon === "10d") {
+    imsrc = "images/047-rainy.svg";
+  } else if (icon === "10n") {
+    imsrc = "images/049-rain.svg";
+  } else if (icon === "11d" || icon === "11n") {
+    imsrc = "images/026-storm.svg";
+  } else if (icon === "13d" || icon === "13n") {
+    imsrc = "images/011-snow.svg";
+  } else if (icon === "50d") {
+    imsrc = "images/014-haze.svg";
+  } else if (icon === "50n") {
+    imsrc = "images/037-foggy.svg";
+  }
+  return imsrc;
+}
+// forecast
+function dispForecast(response) {
+  let forecast = response.data.daily;
 
-  function iconW(response) {
-    console.log(response.data.weather[0].icon);
-    let icon = response.data.weather[0].icon;
-    if (icon === "01d") {
-      document.getElementById("descIm").src = "images/033-sun.svg";
-    } else if (icon === "01n") {
-      document.getElementById("descIm").src = "images/019-moon.svg";
-    } else if (icon === "02d" || icon === "03d" || icon === "04d") {
-      document.getElementById("descIm").src = "images/046-cloudy.svg";
-    } else if (icon === "02n" || icon === "03n" || icon === "04n") {
-      console.log("holi");
-      document.getElementById("descIm").src = "images/013-night.svg";
-    } else if (icon === "09d" || icon === "09n") {
-      document.getElementById("descIm").src = "images/005-rain.svg";
-    } else if (icon === "10d") {
-      document.getElementById("descIm").src = "images/047-rainy.svg";
-    } else if (icon === "10n") {
-      document.getElementById("descIm").src = "images/049-rain.svg";
-    } else if (icon === "11d" || icon === "11n") {
-      document.getElementById("descIm").src = "images/026-storm.svg";
-    } else if (icon === "13d" || icon === "13n") {
-      document.getElementById("descIm").src = "images/011-snow.svg";
-    } else if (icon === "50d") {
-      document.getElementById("descIm").src = "images/014-haze.svg";
-    } else if (icon === "50n") {
-      document.getElementById("descIm").src = "images/037-foggy.svg";
+  let forecastElement = document.querySelector("#wf");
+  let forecastCol = `<div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastCol =
+        forecastCol +
+        `<div class="col forecast">
+        <p class="textFore">${dayOW(forecastDay.dt)}</p>
+        <img src="${getIcon(
+          forecastDay.weather[0].icon
+        )}" class="forecastIcon" />
+        <p class="textFore">
+          <span class="maxTemp">${Math.round(forecastDay.temp.max)}°</span>
+          <span class="minTemp">${Math.round(forecastDay.temp.min)}°</span>
+        </p>
+    </div>
+  `;
     }
-  }
-  axios.get(apiUrl).then(iconW);
+  });
+
+  forecastCol = forecastCol + `</div>`;
+  forecastElement.innerHTML = forecastCol;
 }
-// get the Wind & Humidity of a city when submitting in the form
-document.querySelector("#searchForm").addEventListener("submit", changeIcon);
-// get the Wind & Humidity of a city when clicking on 🔍
-document.querySelector("#lens").addEventListener("click", changeIcon);
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = `0f228e3e7aa18774ac951c893270d5e1`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(dispForecast);
+}
